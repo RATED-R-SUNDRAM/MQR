@@ -14,6 +14,13 @@
   transition: all 0.3s;
   font-size: 0.9rem;
 }
+body{
+  background-color:#C5C5C5;
+}
+.subhead{
+  background-color: #696969;
+  padding-bottom:10px;
+}
 
 .social-link:hover,
 .social-link:focus {
@@ -25,28 +32,35 @@
 {% endblock css %}
 {% block body %}
 {% load static %}
+<div class="subhead">
+  <h1 style="text-align: center;
+  color: orange;"><b><u> JUST TWO CLICKS AWAY FROM READING A QR </b></u></h1>
+  <br> 
+  <br>
+  <h2 style="color:#9CCA84;"><b> CHOOSE HOW YOU WANT TO SELECT A QR <b> </h2>
+  </div>
 <div class="flex">
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem;background-color: #696969">
     <div class="card-body">
       <form  action='/postQR' method ='post' enctype='multipart/form-data'>
         
         
  
-        <div class="mb-3 mx-2">
-          <label for="file" class="form-label"><strong>Upload</strong> </label>
+        <div class="mb-3 mx-2" >
+          <label for="file" class="form-label" style="color:orange"><strong><b>UPLOAD FROM COMPUTER</b></strong> </label>
           {{form.media}}
         {{form.as_p}}
           <input type="file" class="form-control" id="myfile" name="myfile" >
         </div>
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="background-color:orange">Submit</button>
       </form>
     </div>
   </div>
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;background-color: #696969">
       <div class="card-body">
-        <button type="button" class="fill"> <a class='link' href="/postCam">Camera</a> </button>
+        <button type="button" class="fill"style="background-color:orange" > <a class='link' href="/postCam" style="color:white" >Camera</a> </button>
       </div>
     </div>
  </div>
