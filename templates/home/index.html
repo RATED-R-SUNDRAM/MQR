@@ -50,7 +50,7 @@
     background-color:#696969;
   }
 </style>
-
+{% if user.is_authenticated %}
 <div class="subhead">
 <h1><b><u> WELCOME TO MQR </b></u></h1>
 <br> 
@@ -72,7 +72,10 @@
         </div>
       </div>
    </div>
+{% else %}
+   <h1 style="color: black;">Please login to use service</h1>
 
+{%endif%}
 <script>
   let previews = document.getElementsByClassName('preview');
   Array.from(previews).forEach((element) => {
