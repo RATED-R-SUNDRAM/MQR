@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Read{%endblock title%}
+
+{% block css %}
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+{% endblock css %}
+{% block body %}
+{% load static %}
+<div class="flex">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <form  action='/postQR' method ='post' enctype='multipart/form-data'>
+        
+        
+ 
+        <div class="mb-3 mx-2">
+          <label for="file" class="form-label"><strong>Upload</strong> </label>
+          {{form.media}}
+        {{form.as_p}}
+          <input type="file" class="form-control" id="myfile" name="myfile" >
+        </div>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <button type="button" class="fill"> <a class='link' href="/postCam">Camera</a> </button>
+      </div>
+    </div>
+ </div>
+
+<script>
+  let previews = document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element) => {
+    element.innerHTML = element.innerText;
+  });
+</script>
+{% endblock body %}

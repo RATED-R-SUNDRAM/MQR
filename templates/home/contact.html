@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% block title %}Contact{%endblock title%}
+
+{% block css %}
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+{% endblock css %}
+{% block body %}
+{% load static %}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  .subihead{
+    background-color: #8487CA;
+    padding-bottom:10px;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #E8D19B;
+    padding: 20px;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  
+  /* Clear floats after the columns */
+  
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+</style>
+<div class="subihead">
+  <h1 style="text-align: center;
+  color: orange;"><b><u>CREATE QR ABOUT YOUR PERSONAL CONTACT INFORMATIONS</b></u></h1>
+  <br> 
+  <br>
+  <h2 style="color:#9CCA84;"><b>FILL IN THE BELOW FORM TO ADD THE INFORMATIONS IN THE QR <b> </h2>
+</div>
+<br> 
+<br>
+<div class="container">
+  <form action="/postContact" method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="fname" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">EMAIL ADDRESS</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="email" placeholder="Your email..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="mobile">MOBILE NUMBER</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="mobile" name="mobile" placeholder="Your mobile number..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="sex">SEX</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="sex" name="sex" placeholder="Your gender..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="dob">DOB</label>
+      </div>
+      <div class="col-75">
+        <input type="date" id="dob" name="dob" placeholder="Your date of birth..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="address">ADDRESS</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="address" name="address" placeholder="Your adress..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="relation">RELATIONSHIP STATUS</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="relation" name="relation" placeholder="Your relationship status..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="workplace">CURRENT WORKPLACE</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="workplace" name="workplace" placeholder="Your workplace..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="designation">DESIGNATION</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="designation" name="designation" placeholder="Your designation..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="link">SOCIAL MEDIA LINKS</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="link" name="link" placeholder="social media links..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="file">UPLOAD PHOTO</label>
+      </div>
+      <div class="col-75">
+        {{form.media}}
+        {{form.as_p}}
+        <input type="file" id="myfile" name="myfile" placeholder="social media links..">
+      </div>
+    </div>
+    <button type="submit" class="row" style="background-color:#2360F0"> SUBMIT </button>
+  </form> 
+</div>
+
+<script>
+  let previews = document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element) => {
+    element.innerHTML = element.innerText;
+  });
+</script>
+{% endblock body %}

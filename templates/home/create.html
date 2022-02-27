@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Create{%endblock title%}
+
+{% block css %}
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+{% endblock css %}
+{% block body %}
+{% load static %}
+<style>
+  body{
+    background-color:#C5C5C5;
+  }
+  h1 {
+    text-align: center;
+    color: orange;
+  }
+  .subhead{
+    display:flex;
+    justify:content:center;
+    flex-flow: column;
+    background-color: #696969;
+    padding:10px;
+   
+  }
+  h2{
+    color: #9CCA84;
+    
+  }
+ 
+  .fill{
+    background-color: green;
+    text-color: white;
+  }
+  .card{
+    margin-top:10%;
+    background-color:#696969;
+  }
+</style>
+
+<div class="subhead">
+  <h1><b><u> JUST TWO CLICKS AWAY FROM CREATING YOUR OWN QR </b></u></h1>
+  <br> 
+  <br>
+  <h2><b> SELECT THE RESPECTIVE DOMAIN WHOSE INFORMATION YOU WANT IN YOUR QR <b> </h2>
+  </div>
+<div class="flex">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button type="button" class="fill"> <a class='link' href="/create/contact"style="color:white;"><b>Contact</b></a> </button>
+      <h4 style="color: orange;">ALL OF YOUR PERSONAL AND SOCIAL CONTACT INFORMATION</h4>
+    </div>
+  </div>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <button type="button" class="fill"> <a class='link' href="/create/medical"style="color:white;"><b>Medical</b></a> </button>
+        <h4 style="color: orange;">ALL OF YOUR MEDICAL RECORDS AND REPORTS </h4>
+      </div>
+    </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <button type="button" class="fill"> <a class='link' href="/create/resume"style="color:white;"><b>Resume</b></a> </button>
+          <h4 style="color: orange;">YOUR PREVIOUS WORK AND ACADEMIC EXPERIENCES</h4>
+        </div>
+    </div>
+ </div>
+
+<script>
+  let previews = document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element) => {
+    element.innerHTML = element.innerText;
+  });
+</script>
+{% endblock body %}

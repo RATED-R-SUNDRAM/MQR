@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}QR{%endblock title%}
+{% block css %}
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+{% endblock css %}
+{% block body %}    
+{% load static %}
+
+<img
+                src="/{{img}}" alt="..." width="240" height="240">
+<script>
+  let previews = document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element) => {
+    element.innerHTML = element.innerText;
+  });
+</script>
+{% endblock body %}

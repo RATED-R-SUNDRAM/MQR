@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block title %}Contact{%endblock title%}
+
+{% block css %}
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+{% endblock css %}
+{% block body %}
+{% load static %}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  .subihead{
+    background-color: #8487CA;
+    padding-bottom:10px;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    magin-top:1%;
+    background-color: #E8D19B;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  
+  /* Clear floats after the columns */
+  
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+</style>
+<div class="subihead">
+  <h1 style="text-align: center;
+  color: orange;"><b><u>CREATE QR ABOUT YOUR MEDICAL HISTORY AND RECORDS</b></u></h1>
+  <br> 
+  <br>
+  <h2 style="color:#9CCA84;"><b>FILL IN THE BELOW FORM TO ADD THE INFORMATIONS IN THE QR <b> </h2>
+</div>
+<br> 
+<br>
+<div class="container">
+  <form action="/postMedical" method='post' enctype='multipart/form-data'>
+    <div class="row">
+      {% csrf_token %} 
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="fname" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">EMAIL ADDRESS</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="email" placeholder="Your email..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="mobile">MOBILE NUMBER</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="mobile" name="mobile" placeholder="Your mobile number..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="sex">SEX</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="sex" name="sex" placeholder="Your gender..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="dob">AGE</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Your age..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="height">Height(in cm)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="height" name="height" placeholder="Your Height..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="weight">Weight</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="weight" name="weight" placeholder="Your weight..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="blood">BLOOD GROUP</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="blood" name="blood" placeholder="Your blood group..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="disease">CURRENT DISEASE(s)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="disease" name="disease" placeholder="Current Disease.">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="doctor">CONSULTING DOCTOR</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="doctor" name="doctor" placeholder="CONSULTING DOCTOR....">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="history">ANY MEDICAL HISTORY</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="history" name="history" placeholder="medical history..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="report">UPLOAD REPORTS</label>
+      </div>
+      <div class="col-75">
+        {{form.media}}
+        {{form.as_p}}
+        <input type="file" id="myfile" name="myfile" placeholder="social media links..">
+      </div>
+    </div>
+    <button type="submit" class="row" style="background-color:#2360F0">SUBMIT</button>
+  </form>
+</div>
+
+<script>
+  let previews = document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element) => {
+    element.innerHTML = element.innerText;
+  });
+</script>
+{% endblock body %}
