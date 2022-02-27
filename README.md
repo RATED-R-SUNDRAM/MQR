@@ -33,7 +33,8 @@ information sharings, contrary from creating a QR the user will be given the opt
 * For patients it is difficult to maintain the all the records and history of their medical diagnosis , once uploaded on the QR it is very effective to carry such informations
 and records.
 
-* For Sensitive informations such as banking and property related informations sharing via QR codes gives the security of not transcating the data directly over the internet.
+* For Sensitive informations such as banking and property related informations sharing via QR codes gives the security of not transcating the data directly over the internet
+to the selected people we want to share.
 
 > ##* FURTHER DEVELOPMENTS* ##
 * To convert this web prototype into mobile applications.
